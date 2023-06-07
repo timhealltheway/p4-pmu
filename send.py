@@ -9,6 +9,7 @@ import sys
 import time
 import argparse
 import json
+<<<<<<< HEAD
 import csv
 sys.path.append('../')
 from utilities.pmu_csv_parser import parse_csv_data
@@ -16,19 +17,37 @@ from datetime import datetime
 
 index = 0
 csv_sent_time_data = [["index", "sent_at"]]
+=======
+import time
+sys.path.append('../')
+from utilities.pmu_csv_parser import parse_csv_data
+
+
+index = 1
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 def generate_packet(time, voltage, angle, settings={"pmu_measurement_bytes": 8, "destination_ip": "192.168.0.100", "destination_port": 4712}):
     # Define the PMU packet as a byte string
     datetime_str = str(time)[:26]
     global index
     try:
+<<<<<<< HEAD
         dt = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S.%f')
     except ValueError:
         dt = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
+=======
+        dt = datetime.datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S.%f')
+    except ValueError:
+        dt = datetime.datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 
     # 2 byte
 
     #sync = b'\xAA\x01'
     sync = index.to_bytes(2, 'big')
+<<<<<<< HEAD
+=======
+    index += 1
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 
 
     # 2 byte, 44 for 32 bit values of PMU, 40 for 16 bit values of PMU
@@ -40,7 +59,11 @@ def generate_packet(time, voltage, angle, settings={"pmu_measurement_bytes": 8, 
 
     # 4 byte
     soc = int(dt.strftime("%s")).to_bytes(4, 'big')
+<<<<<<< HEAD
     #print(dt.strftime("%s"))
+=======
+    # print(dt.strftime("%s"))
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     # 4 byte
     frac_sec = dt.microsecond.to_bytes(4, 'big')
     # 2 byte (no errors)
@@ -76,12 +99,17 @@ def generate_packet(time, voltage, angle, settings={"pmu_measurement_bytes": 8, 
     # Create a UDP socket
     udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
+<<<<<<< HEAD
     #write to csv file the index and the time
     csv_sent_time_data.append([index, datetime.now()])
 
     # Send the PMU packet to the destination IP address and port number
     udp_socket.sendto(pmu_packet, (destination_ip, destination_port))
     index += 1
+=======
+    # Send the PMU packet to the destination IP address and port number
+    udp_socket.sendto(pmu_packet, (destination_ip, destination_port))
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 
     # Close the UDP socket
     udp_socket.close()
@@ -93,10 +121,21 @@ def parse_console_args(parser):
     parser.add_argument('--port', default=4712)
     parser.add_argument('--num_packets', default=-1)
     parser.add_argument('--drop_indexes', default='./evaluation/missing-data.json')
+<<<<<<< HEAD
     parser.add_argument('--time_sent_file', required=True)
 
     return parser.parse_args()
 
+=======
+    return parser.parse_args()
+
+def send_end_packet(end_packet, destination_ip,destination_port):
+    udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    destination_port = 4712
+    udp_socket.sendto(end_packet.encode(), (destination_ip, destination_port))
+    udp_socket.close()
+
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
@@ -121,6 +160,7 @@ if __name__ == "__main__":
     if int(args.num_packets) > 0:
         num_to_send = int(args.num_packets)
 
+<<<<<<< HEAD
     start_time = time.time()
     for i in range(num_to_send):
         if i == 0:
@@ -141,5 +181,33 @@ if __name__ == "__main__":
     with open(args.time_sent_file, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(csv_sent_time_data)
+=======
+    start_time =time.time()
+    for i in range(num_to_send):
+        # if i == 0:
+        #     print(pmu_csv_data["times"][i])
+        #     start_time = time.time()
+
+
+        #sending to loopback as opposed to switch
+        settings_obj = {"destination_ip": "127.0.0.1" if i in drop_indexes else  args.ip, "destination_port": int(args.port)}
+
+        print(str(i+1) + " | " + "Magnitude: " + str(pmu_csv_data["magnitudes"][0][i]) + " | Phase_angle: " + str(pmu_csv_data["phase_angles"][0][i]))
+        time.sleep(0.017)
+        generate_packet(pmu_csv_data["times"][i], pmu_csv_data["magnitudes"][0][i], pmu_csv_data["phase_angles"][0][i], settings_obj)
+
+                # record timing in every round
+    with open('sender_missing.txt','w') as f:
+        f.write(f"Starting time: {start_time}\n")
+
+
+    # send end packet
+    end_packet = "END_OF_TRANSMISSION"
+    destination_ip = settings_obj["destination_ip"]
+
+    time.sleep(1)
+    send_end_packet(end_packet, "10.0.2.2",4712)
+    print("done sending end packet")
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 
     # generate_packets()

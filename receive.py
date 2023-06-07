@@ -5,9 +5,12 @@ import sys
 from sorted_list import KeySortedList
 import signal
 import argparse
+<<<<<<< HEAD
 from threading import Thread
 from queue import Queue
 from datetime import datetime
+=======
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 import time
 
 UDP_IP_ADDRESS = "0.0.0.0"  # listen on all available interfaces
@@ -54,11 +57,16 @@ def pmu_packet_parser(data, settings={"pmu_measurement_bytes": 8, "num_phasors":
 
 #stuff you want to print out if you have to cntrl-c out of program due to error
 def cntrl_c_handler(signum, frame):
+<<<<<<< HEAD
     sorted_pmus.write_to_csv("error.csv")
+=======
+    sorted_pmus.print_pmu()
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     exit(1)
 
 
 def parse_console_args(parser):
+<<<<<<< HEAD
     parser.add_argument('filename', help='file to print results')
     parser.add_argument('--terminate_after', type=int, help='Number of packets to receive before terminating')
 
@@ -92,6 +100,12 @@ def listen_for_pmu_queue(q, terminate_after):
     #sorted_pmus.print_pmu()
 
 
+=======
+    parser.add_argument('terminate_after', type=int, help='Number of packets to receive before terminating')
+    return parser.parse_args()
+
+
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 # wait for incoming PMU packets
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -100,6 +114,7 @@ if __name__ == "__main__":
                         epilog='Text at the bottom of help')
     args = parse_console_args(parser)
     signal.signal(signal.SIGINT, cntrl_c_handler)
+<<<<<<< HEAD
 
     raw_pmu_packet_queue = Queue()
 
@@ -118,3 +133,47 @@ if __name__ == "__main__":
 
     serverSock.close()
     sorted_pmus.write_to_csv(args.filename)
+=======
+    received_counter = 0
+    buffer = []
+    predicted_magnitude = 0
+    predicted_pa = 0
+    end_time = 0
+
+
+    while received_counter <1000: #received_counter < args.terminate_after
+        data, addr = serverSock.recvfrom(1500)  # receive up to 1500 bytes of data
+        received_counter += 1
+        # end_time = time.time()
+                    #check if receive end packet
+        # if data == b"END_OF_TRANSMISSION" :
+        #     # end_packet_received = True
+        #     end_time = time.time()
+        #     break
+        # if received_counter == 1000:
+        #     end_time = time.time()
+        #     break
+
+        # print float value of pmu_packet_parser(data)["frame_size"]
+        pmu_data = pmu_packet_parser(data)
+        sorted_pmus.insert(pmu_data)
+
+        # print(str(received_counter))
+        print(str(received_counter) + " : " + str(pmu_data["sync"]) + " | " + "Magnitude: " + str(pmu_data["phasors"][0]["magnitude"]) + " | Phase_angle: " + str(pmu_data["phasors"][0]["angle"]))
+        # for dp -> cp -> dp speed analysis
+    end_time = time.time()
+    with open('receiver_missing.txt','w') as f:
+        f.write(f"End time: {end_time} \n")
+        """
+        if int.from_bytes(pmu_data["analog"], byteorder="big") != 0:
+            print(str("Data plane -> Controller"))
+            print(str(int.from_bytes(pmu_data["analog"], byteorder="big")))
+
+        if int.from_bytes(pmu_data["digital"], byteorder="big") != 0:
+            cntrl2dp = pmu_data["digital"] + pmu_data["chk"]
+            print(str("Controller -> Data Plane"))
+            print(str(int.from_bytes(cntrl2dp, byteorder="big")))
+            #print(pmu_data["phasors"][0]["magnitude"])
+        """
+        # sorted_pmus.print_pmu()
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109

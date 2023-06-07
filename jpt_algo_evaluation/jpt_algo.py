@@ -65,6 +65,7 @@ def calculate_approximation_error_statistics(exact_measurements, approximate_mea
 
     return mean(approximation_errors), stdev(approximation_errors), max(approximation_errors) - min(approximation_errors)
 
+<<<<<<< HEAD
 def calculate_approximation_error_statistics_1(exact_measurements, approximate_measurements):
     approximation_errors = []
     for i in range(len(exact_measurements)):
@@ -73,6 +74,8 @@ def calculate_approximation_error_statistics_1(exact_measurements, approximate_m
 
     return mean(approximation_errors), stdev(approximation_errors), max(approximation_errors) - min(approximation_errors)
 
+=======
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 def calculate_angle_error(exact, approximate):
     ex = np.array([exact.real, exact.imag])
     app = np.array([approximate.real, approximate.imag])

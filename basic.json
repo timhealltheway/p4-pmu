@@ -19,7 +19,10 @@
         ["tmp_11", 32, false],
         ["new_reg3_0", 32, false],
         ["new_reg2_0", 32, false],
+<<<<<<< HEAD
         ["digest_counter_0", 32, false],
+=======
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         ["temp_mag_0", 32, false],
         ["temp_ang_0", 32, false],
         ["temp_soc_0", 32, false],
@@ -320,7 +323,11 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 350,
+=======
+        "line" : 345,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 8,
         "source_fragment" : "MyDeparser"
       },
@@ -336,7 +343,11 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 164,
+=======
+        "line" : 163,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 25,
         "source_fragment" : "frac_sec_regs"
       },
@@ -348,7 +359,11 @@
       "id" : 1,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 165,
+=======
+        "line" : 164,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 25,
         "source_fragment" : "soc_regs"
       },
@@ -360,7 +375,11 @@
       "id" : 2,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 166,
+=======
+        "line" : 165,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 25,
         "source_fragment" : "magnitude_regs"
       },
@@ -372,7 +391,11 @@
       "id" : 3,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 167,
+=======
+        "line" : 166,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 25,
         "source_fragment" : "phase_angle_regs"
       },
@@ -384,7 +407,11 @@
       "id" : 4,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 168,
+=======
+        "line" : 167,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 25,
         "source_fragment" : "R1"
       },
@@ -398,7 +425,11 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 317,
+=======
+        "line" : 312,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 8,
         "source_fragment" : "update_checksum( ..."
       },
@@ -449,6 +480,38 @@
           "value" : ["ipv4", "dstAddr"]
         }
       ]
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name" : "calc_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "basic.p4",
+        "line" : 328,
+        "column" : 10,
+        "source_fragment" : "update_checksum_with_payload( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["udp", "srcPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "desPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "len"]
+        },
+        {
+          "type" : "payload",
+          "value" : null
+        }
+      ]
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     }
   ],
   "learn_lists" : [
@@ -457,7 +520,11 @@
       "name" : "jpt_pmu_triplet_t",
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 237,
+=======
+        "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 18,
         "source_fragment" : "meta"
       },
@@ -531,7 +598,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 180,
+=======
+            "line" : 177,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "mark_to_drop(standard_metadata)"
           }
@@ -561,7 +632,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 185,
+=======
+            "line" : 182,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.read(new_reg3, (bit<32>)1)"
           }
@@ -584,7 +659,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 186,
+=======
+            "line" : 183,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.read(new_reg2, (bit<32>)0)"
           }
@@ -607,7 +686,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 187,
+=======
+            "line" : 184,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.write((bit<32>)2, new_reg3)"
           }
@@ -630,7 +713,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 188,
+=======
+            "line" : 185,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.write((bit<32>)1, new_reg2)"
           }
@@ -653,7 +740,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 189,
+=======
+            "line" : 186,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.write((bit<32>)0, hdr.pmu.fracsec)"
           }
@@ -676,7 +767,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 191,
+=======
+            "line" : 188,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.read(new_reg3, (bit<32>)1)"
           }
@@ -699,7 +794,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 192,
+=======
+            "line" : 189,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.read(new_reg2, (bit<32>)0)"
           }
@@ -722,7 +821,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 193,
+=======
+            "line" : 190,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.write((bit<32>)2, new_reg3)"
           }
@@ -745,7 +848,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 194,
+=======
+            "line" : 191,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.write((bit<32>)1, new_reg2)"
           }
@@ -768,7 +875,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 195,
+=======
+            "line" : 192,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.write((bit<32>)0, hdr.pmu.soc)"
           }
@@ -791,7 +902,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 197,
+=======
+            "line" : 194,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.read(new_reg3, (bit<32>)1)"
           }
@@ -814,7 +929,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 198,
+=======
+            "line" : 195,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.read(new_reg2, (bit<32>)0)"
           }
@@ -837,7 +956,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 199,
+=======
+            "line" : 196,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.write((bit<32>)2, new_reg3)"
           }
@@ -860,7 +983,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 200,
+=======
+            "line" : 197,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.write((bit<32>)1, new_reg2)"
           }
@@ -922,7 +1049,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 201,
+=======
+            "line" : 198,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 41,
             "source_fragment" : "(bit<32>)(hdr.pmu.phasors >> 32)"
           }
@@ -945,7 +1076,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 201,
+=======
+            "line" : 198,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.write((bit<32>)0, (bit<32>)(hdr.pmu.phasors >> 32))"
           }
@@ -968,7 +1103,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 203,
+=======
+            "line" : 200,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.read(new_reg3, (bit<32>)1)"
           }
@@ -991,7 +1130,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 204,
+=======
+            "line" : 201,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.read(new_reg2, (bit<32>)0)"
           }
@@ -1014,7 +1157,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 205,
+=======
+            "line" : 202,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.write((bit<32>)2, new_reg3)"
           }
@@ -1037,7 +1184,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 206,
+=======
+            "line" : 203,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.write((bit<32>)1, new_reg2)"
           }
@@ -1079,7 +1230,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 207,
+=======
+            "line" : 204,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 43,
             "source_fragment" : "(bit<32>)hdr.pmu.phasors"
           }
@@ -1102,7 +1257,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 207,
+=======
+            "line" : 204,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.write((bit<32>)0, (bit<32>)hdr.pmu.phasors)"
           }
@@ -1132,7 +1291,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 213,
+=======
+            "line" : 210,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.read(temp_mag, (bit<32>)0)"
           }
@@ -1155,7 +1318,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 214,
+=======
+            "line" : 211,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.read(temp_ang, (bit<32>)0)"
           }
@@ -1237,7 +1404,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 215,
+=======
+            "line" : 212,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "meta.jpt_packet.phasors0 = temp_mag ++ temp_ang"
           }
@@ -1260,7 +1431,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 217,
+=======
+            "line" : 213,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.read(meta.jpt_packet.soc0, (bit<32>)0)"
           }
@@ -1283,7 +1458,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 218,
+=======
+            "line" : 214,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.read(meta.jpt_packet.fracsec0, (bit<32>)0)"
           }
@@ -1306,7 +1485,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 220,
+=======
+            "line" : 216,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.read(temp_mag, (bit<32>)1)"
           }
@@ -1329,7 +1512,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 221,
+=======
+            "line" : 217,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.read(temp_ang, (bit<32>)1)"
           }
@@ -1411,7 +1598,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 222,
+=======
+            "line" : 218,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "meta.jpt_packet.phasors1 = temp_mag ++ temp_ang"
           }
@@ -1434,7 +1625,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 223,
+=======
+            "line" : 219,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.read(meta.jpt_packet.soc1, (bit<32>)1)"
           }
@@ -1457,7 +1652,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 224,
+=======
+            "line" : 220,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.read(meta.jpt_packet.fracsec1, (bit<32>)1)"
           }
@@ -1480,7 +1679,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 226,
+=======
+            "line" : 222,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "magnitude_regs.read(temp_mag, (bit<32>)2)"
           }
@@ -1503,7 +1706,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 227,
+=======
+            "line" : 223,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "phase_angle_regs.read(temp_ang, (bit<32>)2)"
           }
@@ -1585,7 +1792,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 228,
+=======
+            "line" : 224,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "meta.jpt_packet.phasors2 = temp_mag ++ temp_ang"
           }
@@ -1608,7 +1819,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 229,
+=======
+            "line" : 225,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "soc_regs.read(meta.jpt_packet.soc2, (bit<32>)2)"
           }
@@ -1631,7 +1846,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 230,
+=======
+            "line" : 226,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "frac_sec_regs.read(meta.jpt_packet.fracsec2, (bit<32>)2)"
           }
@@ -1650,7 +1869,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 234,
+=======
+            "line" : 230,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "meta.jpt_packet.curr_soc = hdr.pmu.soc"
           }
@@ -1669,7 +1892,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 235,
+=======
+            "line" : 231,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "meta.jpt_packet.curr_fracsec = hdr.pmu.fracsec"
           }
@@ -1688,7 +1915,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1707,7 +1938,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1726,7 +1961,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1745,7 +1984,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1764,7 +2007,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1783,7 +2030,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1802,7 +2053,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1821,7 +2076,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1903,7 +2162,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1922,7 +2185,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1941,7 +2208,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 18,
             "source_fragment" : "meta"
           }
@@ -1960,7 +2231,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 237,
+=======
+            "line" : 233,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "digest(1, meta.jpt_packet)"
           }
@@ -1995,7 +2270,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 241,
+=======
+            "line" : 237,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "standard_metadata.egress_spec = port"
           }
@@ -2014,7 +2293,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 242,
+=======
+            "line" : 238,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "hdr.ethernet.srcAddr = hdr.ethernet.dstAddr"
           }
@@ -2033,7 +2316,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 243,
+=======
+            "line" : 239,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "hdr.ethernet.dstAddr = dstAddr"
           }
@@ -2075,7 +2362,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 244,
+=======
+            "line" : 240,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 8,
             "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
           }
@@ -2083,7 +2374,11 @@
       ]
     },
     {
+<<<<<<< HEAD
       "name" : "basic268",
+=======
+      "name" : "basic264",
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
       "id" : 5,
       "runtime_data" : [],
       "primitives" : [
@@ -2092,6 +2387,7 @@
           "parameters" : [
             {
               "type" : "field",
+<<<<<<< HEAD
               "value" : ["scalars", "digest_counter_0"]
             },
             {
@@ -2180,6 +2476,8 @@
           "parameters" : [
             {
               "type" : "field",
+=======
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
               "value" : ["scalars", "temp_soc_0"]
             },
             {
@@ -2193,7 +2491,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 271,
+=======
+            "line" : 264,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 14,
             "source_fragment" : "soc_regs.read(temp_soc, (bit<32>)0)"
           }
@@ -2216,7 +2518,11 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 272,
+=======
+            "line" : 265,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 14,
             "source_fragment" : "frac_sec_regs.read(temp_frac_sec, (bit<32>)0)"
           }
@@ -2230,13 +2536,18 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 160,
+=======
+        "line" : 159,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 8,
         "source_fragment" : "MyIngress"
       },
       "init_table" : "node_2",
       "tables" : [
         {
+<<<<<<< HEAD
           "name" : "tbl_basic268",
           "id" : 0,
           "source_info" : {
@@ -2244,6 +2555,15 @@
             "line" : 268,
             "column" : 14,
             "source_fragment" : "R1.read(digest_counter, 0); ..."
+=======
+          "name" : "tbl_basic264",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "basic.p4",
+            "line" : 264,
+            "column" : 14,
+            "source_fragment" : "soc_regs.read(temp_soc, (bit<32>)0); ..."
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
           },
           "key" : [],
           "match_type" : "exact",
@@ -2253,10 +2573,17 @@
           "support_timeout" : false,
           "direct_meters" : null,
           "action_ids" : [5],
+<<<<<<< HEAD
           "actions" : ["basic268"],
           "base_default_next" : "node_5",
           "next_tables" : {
             "basic268" : "node_5"
+=======
+          "actions" : ["basic264"],
+          "base_default_next" : "node_5",
+          "next_tables" : {
+            "basic264" : "node_5"
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
           },
           "default_entry" : {
             "action_id" : 5,
@@ -2270,7 +2597,11 @@
           "id" : 1,
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 281,
+=======
+            "line" : 274,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 16,
             "source_fragment" : "send_pmu_to_control_plane()"
           },
@@ -2299,7 +2630,11 @@
           "id" : 2,
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 284,
+=======
+            "line" : 277,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 14,
             "source_fragment" : "update_registers()"
           },
@@ -2328,7 +2663,11 @@
           "id" : 3,
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 247,
+=======
+            "line" : 243,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 10,
             "source_fragment" : "ipv4_lpm"
           },
@@ -2369,7 +2708,11 @@
           "id" : 0,
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 262,
+=======
+            "line" : 258,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 12,
             "source_fragment" : "hdr.ipv4.isValid()"
           },
@@ -2392,7 +2735,11 @@
           "id" : 1,
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 266,
+=======
+            "line" : 262,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 15,
             "source_fragment" : "hdr.pmu.stat == (bit<16>)0x0"
           },
@@ -2410,7 +2757,11 @@
               }
             }
           },
+<<<<<<< HEAD
           "true_next" : "tbl_basic268",
+=======
+          "true_next" : "tbl_basic264",
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
           "false_next" : "MyIngress.ipv4_lpm"
         },
         {
@@ -2418,7 +2769,11 @@
           "id" : 2,
           "source_info" : {
             "filename" : "basic.p4",
+<<<<<<< HEAD
             "line" : 277,
+=======
+            "line" : 270,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             "column" : 17,
             "source_fragment" : "              if(frac_sec_diff > 20000 && temp_soc != 0) //gives a bit of \\\"breathing room\\\" for measurements"
           },
@@ -2546,7 +2901,11 @@
       "id" : 1,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 303,
+=======
+        "line" : 298,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 8,
         "source_fragment" : "MyEgress"
       },
@@ -2562,7 +2921,11 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
+<<<<<<< HEAD
         "line" : 317,
+=======
+        "line" : 312,
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         "column" : 8,
         "source_fragment" : "update_checksum( ..."
       },
@@ -2582,6 +2945,35 @@
           }
         }
       }
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name" : "cksum_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "basic.p4",
+        "line" : 328,
+        "column" : 10,
+        "source_fragment" : "update_checksum_with_payload( ..."
+      },
+      "target" : ["udp", "checksum"],
+      "type" : "generic",
+      "calculation" : "calc_0",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["udp", "$valid$"]
+          }
+        }
+      }
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     }
   ],
   "force_arith" : [],

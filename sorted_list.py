@@ -1,7 +1,11 @@
 from bisect import bisect_left
+<<<<<<< HEAD
 import sys
 import csv
 from jpt_algo_evaluation.jpt_algo import calculate_complex_voltage
+=======
+
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 #creates ascending order sorted list (no duplicates). inserts items in O(n)
 class KeySortedList:
     def __init__(self, key=None,  keyfunc=lambda v: v):
@@ -28,13 +32,17 @@ class KeySortedList:
             print(str(counter) + " : " + str(pmu["sync"]) + " | " + "Magnitude: " + str(pmu["phasors"][0]["magnitude"]) + " | Phase_angle: " + str(pmu["phasors"][0]["angle"]))
             counter += 1
 
+<<<<<<< HEAD
             #index starts at 1
+=======
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     def print_recovered(self, indexes_only):
         for i in range(len(self._list)):
             pmu = self._list[i]
             #generated packet
             if pmu["stat"] == 9:
                 if indexes_only:
+<<<<<<< HEAD
                     print(str(i + 1) + " indexed packet was recoved")
                 else:
                     print(str(pmu["sync"]) + " | " + "Magnitude: " + str(pmu["phasors"][0]["magnitude"]) + " | Phase_angle: " + str(pmu["phasors"][0]["angle"]))
@@ -55,6 +63,12 @@ class KeySortedList:
             writer = csv.writer(file)
             writer.writerows(csv_obj)
 
+=======
+                    print(str(i) + " indexed packet was recoved")
+                else:
+                    print(str(pmu["sync"]) + " | " + "Magnitude: " + str(pmu["phasors"][0]["magnitude"]) + " | Phase_angle: " + str(pmu["phasors"][0]["angle"]))
+
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     #TODO
     def flush():
         print("flush the list here")

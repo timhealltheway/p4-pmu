@@ -5,6 +5,7 @@ from sswitch_runtime.ttypes import *
 import struct
 import nnpy
 import socket
+<<<<<<< HEAD
 import math
 from jpt_algo_evaluation.jpt_algo import calculate_complex_voltage, jpt_algo, phase_angle_and_magnitude_from_complex_voltage, calculate_approximation_error, calculate_angle_error
 from statistics import mean, stdev
@@ -15,6 +16,22 @@ import time
 
 #TODO: replace hardcoded values like 16000 and 17000 with values derived from Frequency
 
+=======
+import os.path
+import ipaddress
+import math
+from jpt_algo_evaluation.jpt_algo import calculate_complex_voltage, jpt_algo, phase_angle_and_magnitude_from_complex_voltage, calculate_approximation_error, calculate_angle_error
+from statistics import mean, stdev
+import threading
+from collections import namedtuple
+from sorted_list import KeySortedList
+import argparse
+
+#TODO: replace hardcoded values like 16000 and 17000 with values derived from Frequency
+
+counter = 0
+buffer = []
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 missing_packet_counter = 0
 
 class SimpleSwitchAPI(runtime_CLI.RuntimeAPI):
@@ -30,6 +47,7 @@ class SimpleSwitchAPI(runtime_CLI.RuntimeAPI):
 
 pmu_recovery_data_buffer = KeySortedList(keyfunc = lambda obj: obj["timestamp"])
 
+<<<<<<< HEAD
 
 def queue_digests(terminate_after, digest_queue, sub):
     #### Define the controller logic below ###
@@ -37,6 +55,51 @@ def queue_digests(terminate_after, digest_queue, sub):
         message = sub.recv()
         digest_queue.put(message)
 
+=======
+def parse_console_args(parser):
+    parser.add_argument('terminate_after', type=int, help='Number of packets to generate before terminating')
+    return parser.parse_args()
+
+def main():
+
+
+    #cmd_args = parse_console_args(parser)
+
+    parser = runtime_CLI.get_parser()
+    parser.add_argument('--terminate_after', type=int, help='Number of packets to generate before terminating')
+
+    args = parser.parse_args()
+
+    args.pre = runtime_CLI.PreType.SimplePreLAG
+
+    services = runtime_CLI.RuntimeAPI.get_thrift_services(args.pre)
+    services.extend(SimpleSwitchAPI.get_thrift_services())
+
+    standard_client, mc_client, sswitch_client = runtime_CLI.thrift_connect(
+        args.thrift_ip, args.thrift_port, services
+    )
+
+    runtime_CLI.load_json_config(standard_client, args.json)
+    runtime_api = SimpleSwitchAPI(
+        args.pre, standard_client, mc_client, sswitch_client)
+
+    ######### Call the function listen_for_digest below #########
+    listen_for_digests(runtime_api, args.terminate_after)
+
+def listen_for_digests(controller, terminate_after):
+    sub = nnpy.Socket(nnpy.AF_SP, nnpy.SUB)
+    socket = controller.client.bm_mgmt_get_info().notifications_socket
+    #s1 = Pair0()
+    #s1.listen(socket)
+    print("socket is : " + str(socket))
+    sub.connect(socket)
+    sub.setsockopt(nnpy.SUB, nnpy.SUB_SUBSCRIBE, '')
+    #### Define the controller logic below ###
+    while missing_packet_counter < terminate_after:
+        message = sub.recv()
+        #print(message)
+        on_message_recv(message, controller)
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 
 def parse_phasors(phasor_data, settings={"num_phasors": 1, "pmu_measurement_bytes": 8}):
     phasor = {
@@ -83,8 +146,19 @@ def generate_new_packets(interface, num_packets, initial_jpt_inputs, last_stored
         #print(str((curr_soc * 1000000 + curr_fracsec) - (new_soc * 1000000 + new_frac)))
         if (curr_soc * 1000000 + curr_fracsec) - (new_soc * 1000000 + new_frac) > 16000:
             generate_new_packet("s1-eth2", new_soc, new_frac, generated_mag, generated_pa)
+<<<<<<< HEAD
             #time.sleep(.017)
 
+=======
+
+        """
+        print("sending packet with: ")
+        print("soc: " + str(new_soc))
+        print("frac: " + str(new_frac))
+        print("magnitude: " + str(generated_mag))
+        print("phase_angle: " + str(generated_pa))
+        """
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
 
         last_stored_soc = new_soc
         last_stored_fracsec = new_frac
@@ -162,7 +236,11 @@ def run_nnpy_thread(q, sock):
 def listen_for_events(q, controller):
     while True:
         event_data = q.get()
+<<<<<<< HEAD
         on_digest_recv(event_data)
+=======
+        on_message_recv(event_data)
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         q.task_done()
 
 def fetch_traffic(q, sock):
@@ -198,7 +276,13 @@ def calc_missing_packet_count(curr_soc, curr_fracsec, last_stored_soc, last_stor
     return missing_packet_count
 
 
+<<<<<<< HEAD
 def on_digest_recv(msg):
+=======
+mag_approx_errors = []
+angle_approx_errors = []
+def on_message_recv(msg, controller):
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     _, _, ctx_id, list_id, buffer_id, num = struct.unpack("<iQiiQi", msg[:32])
     ### Insert the receiving logic below ###
     msg = msg[32:]
@@ -212,10 +296,22 @@ def on_digest_recv(msg):
 
     # For listening the next digest
     for m in range(num):
+<<<<<<< HEAD
+=======
+        global counter
+        global buffer
+        global mag_approx_errors
+        global angle_approx_errors
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         global pmu_recovery_data_buffer
         global missing_packet_counter
         jpt_inputs = []
         msg_copy = msg[0:]
+<<<<<<< HEAD
+=======
+        new_soc = 0
+        new_frac_sec = 0
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
         last_stored_soc = 0
         last_stored_fracsec = 0
         # extracting phasor data from digest messages
@@ -228,6 +324,11 @@ def on_digest_recv(msg):
             pmu_recovery_data_buffer.insert({"timestamp": soc + frac / 1000000, "magnitude": phasor[0]["magnitude"], "phase_angle": phasor[0]["angle"]})
             #top of receive stack =     most recent measurement
             if j == 0:
+<<<<<<< HEAD
+=======
+                new_soc = soc
+                new_frac = frac + 16666
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
                 last_stored_soc = soc
                 last_stored_fracsec = frac
 
@@ -251,6 +352,7 @@ def on_digest_recv(msg):
         print("NUM MISSING TOTAL: " + str(missing_packet_counter))
 
 
+<<<<<<< HEAD
 
         if len(jpt_inputs) > 2:
             generate_new_packets("s1-eth2", missing_packets, jpt_inputs, last_stored_soc, last_stored_fracsec, curr_soc, curr_fracsec)
@@ -304,3 +406,11 @@ if __name__ == "__main__":
 
     #does some stuff when a digest is received
     listen_for_new_digests(digest_message_queue)
+=======
+        if len(jpt_inputs) > 2:
+            generate_new_packets("s1-eth2", missing_packets, jpt_inputs, last_stored_soc, last_stored_fracsec, curr_soc, curr_fracsec)
+        #move to next digest packet
+        msg = msg[offset:]
+
+main()
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109

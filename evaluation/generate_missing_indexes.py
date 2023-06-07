@@ -8,13 +8,21 @@ def generate_n_percent_missing(n_percent, data_size):
     while len(sample) < data_size * (n_percent / 100):
         rand_index = 0
 
+<<<<<<< HEAD
         # make sure we don't get the first 3 indexes since those should be in the switch, or the last since can't detect
         while rand_index <= 2 or rand_index == data_size - 1:
+=======
+        # make sure we don't get the first 3 indexes since those should be in the switch
+        while rand_index <= 2:
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
             rand_index = random.randrange(data_size)
         sample.append(rand_index)
         #remove duplicates
         sample = list(set(sample))
+<<<<<<< HEAD
     sample.sort()
+=======
+>>>>>>> 1a060186327a1232ee12745d2eb04f05309b2109
     return sample
 
 
